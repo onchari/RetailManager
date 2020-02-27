@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="SRMDesktopUI.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SRMDesktopUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="425" d:DesignWidth="800" Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="38.814" />
+            <RowDefinition Height="11.186"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" 
+                   HorizontalAlignment="Center" FontSize="64" FontFamily="Segoe UI Light" Margin="21,0,21,20">
+            Login Form
+        </TextBlock>
+
+        <!---Username row-->
+        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="30" Margin="0 0 0 10" Grid.RowSpan="2" >
+            Username :
+        </TextBlock>
+        <TextBox x:Name="UserName" Grid.Row="1" Grid.Column="2" MinWidth="200" Margin="0 0 0 10" Grid.RowSpan="2" />
+
+        <!---Password row-->
+       
+        <TextBlock Grid.Row="3" Grid.Column="1" FontSize="30" Margin="0 0 0 10" >
+            Password :
+        </TextBlock>
+        <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="2" MinWidth="200" Margin="0 0 0 10" />
+
+        <!---Login Button-->
+        <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="100" Height="30"
+                HorizontalAlignment="Center"  x:Name="Login" Padding="10 5" Margin="124,0">
+            Log In
+        </Button>
+    </Grid>
+</UserControl>
