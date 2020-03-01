@@ -27,7 +27,8 @@ namespace SRMDesktopUI
             _container.Instance(_container);
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<IApiHelper, ApiHelper>();
 
             //get all types in the entire application
             //var allTypes = GetType().Assembly.GetTypes();

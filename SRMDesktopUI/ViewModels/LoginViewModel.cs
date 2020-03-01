@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SRMDesktopUI.Helpers;
 
 namespace SRMDesktopUI.ViewModels
 {
@@ -12,6 +13,12 @@ namespace SRMDesktopUI.ViewModels
     {
         private string _userName = "";
         private string _password;
+        private readonly IApiHelper _apiHelper;
+
+        public LoginViewModel(IApiHelper apiHelper)
+        {
+            _apiHelper = apiHelper;
+        }
         public string UserName
         {
             get 
@@ -47,19 +54,23 @@ namespace SRMDesktopUI.ViewModels
         {
             get
             {
-                bool output = false;
-                if (UserName?.Length > 0 && Password?.Length > 0)
-                {
-                    output = true;
-                }
+                bool output = UserName?.Length > 0 && Password?.Length > 0;
 
                 return output;
             }
        }
 
-        public void Login()
+        public async Task Login()
         {
-            Console.WriteLine("Yes We logged in");
+            try
+            {
+                var result = await _apiHelper.Authenticate(UserName, Password);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
